@@ -10,7 +10,7 @@ export async function scrapeSheet(url){
 
   // Attend que l'iframe soit disponible
   await page.waitForSelector("iframe#pageswitcher-content");
-
+  console.log("frame trouvée");
   // Récupère la frame associée à l'iframe
   const elementHandle = await page.$("iframe#pageswitcher-content");
   const frame = await elementHandle.contentFrame();
@@ -22,6 +22,7 @@ export async function scrapeSheet(url){
     const result = await frame.evaluate(() => {
     const table = document.querySelector(".waffle");
     while(!table){
+        console.log("recherche de la table");
         new Promise(resolve => setTimeout(resolve, 1000));
         const table = document.querySelector(".waffle");
     }
@@ -46,5 +47,6 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
