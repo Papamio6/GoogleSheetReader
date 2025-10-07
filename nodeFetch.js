@@ -17,18 +17,20 @@ export async function scrapeSheet(url){
   console.log("frame sélectionnée");
 
     // Attendre que la table soit présente
-
+  const table = await frame.$(".waffle");
+  const lim = 10;
+    
+  while((!table) && (lim>0)){
+      
+      table = await frame.$(".waffle");
+      if (!table) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // pause côté Node
+        lim = lim-1;
+      }
+    }
   // Extrait les données et les couleurs
     const result = await frame.evaluate(() => {
-    const table = document.querySelector(".waffle");
-    const lim = 10;
-    
-    while((!table) && (lim>0)){
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        table = document.querySelector(".waffle");
-        lim = lim-1;
-    }
-      
+          
     if (!table) return { data: [], colors: [] };
 
     const rows = Array.from(table.querySelectorAll("tr"));
@@ -49,6 +51,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
