@@ -21,11 +21,14 @@ export async function scrapeSheet(url){
   // Extrait les données et les couleurs
     const result = await frame.evaluate(() => {
     const table = document.querySelector(".waffle");
-    while(!table){
+    const lim = 10;
+    
+    while((!table) && (lim=>1)){
         new Promise(resolve => setTimeout(resolve, 1000));
         const table = document.querySelector(".waffle");
+        lim = lim-1;
     }
-  
+      
     if (!table) return { data: [], colors: [] };
 
     const rows = Array.from(table.querySelectorAll("tr"));
@@ -46,6 +49,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
