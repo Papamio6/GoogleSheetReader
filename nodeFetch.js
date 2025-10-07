@@ -23,9 +23,9 @@ export async function scrapeSheet(url){
     const table = document.querySelector(".waffle");
     const lim = 10;
     
-    while((!table) && (lim=>1)){
-        new Promise(resolve => setTimeout(resolve, 1000));
-        const table = document.querySelector(".waffle");
+    while((!table) && (lim>0)){
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        table = document.querySelector(".waffle");
         lim = lim-1;
     }
       
@@ -49,6 +49,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
