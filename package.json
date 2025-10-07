@@ -1,0 +1,13 @@
+{
+  "name": "puppeteer-backend",
+  "type": "module",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.19.0",
+    "cors": "^2.8.5",
+    "puppeteer": "^22.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
