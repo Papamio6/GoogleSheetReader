@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node server.js"
+    "postinstall": "npx puppeteer install"
   },
   "license": "MIT"
 }
