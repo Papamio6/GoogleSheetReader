@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 
 
 
-async function scrapeSheet(url){
+export async function scrapeSheet(url){
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
@@ -45,4 +45,5 @@ async function scrapeSheet(url){
 
   await browser.close();
   return result;
+
 }
