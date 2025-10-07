@@ -28,6 +28,7 @@ export async function scrapeSheet(url){
         lim = lim-1;
       }
     }
+  console.log("table trouvée");
   // Extrait les données et les couleurs
     const result = await frame.evaluate(() => {
           
@@ -51,6 +52,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
