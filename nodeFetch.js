@@ -1,5 +1,4 @@
-const puppeteer = require("puppeteer");
-
+import puppeteer from "puppeteer";
 
 
 export async function scrapeSheet(url){
@@ -47,4 +46,5 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
