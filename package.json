@@ -9,5 +9,6 @@
   },
   "scripts": {
     "start": "node server.js"
-  }
+  },
+  "license": "MIT"
 }
