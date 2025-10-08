@@ -17,7 +17,7 @@ export async function scrapeSheet(url){
   console.log("frame sélectionnée");
 
     // Attendre que la table soit présente
-  const table = await frame.$(".waffle");
+  let table = await frame.$(".waffle");
   const lim = 10;
     
   while((!table) && (lim>0)){
@@ -52,6 +52,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
