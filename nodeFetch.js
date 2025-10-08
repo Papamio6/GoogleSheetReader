@@ -30,10 +30,10 @@ export async function scrapeSheet(url){
     }
   console.log("table trouvée");
   // Extrait les données et les couleurs
-    const result = await frame.evaluate(() => {
+    const result = await frame.evaluate((table) => {
           
     if (!table) return { data: [], colors: [] };
-
+    
     const rows = Array.from(table.querySelectorAll("tr"));
 
     const data = [];
@@ -52,6 +52,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
