@@ -21,7 +21,7 @@ export async function scrapeSheet(url){
   const lim = 10;
     
   while((!table) && (lim>0)){
-      
+      console.log("search for table");
       table = await frame.$(".waffle");
       if (!table) {
         await new Promise(resolve => setTimeout(resolve, 1000)); // pause côté Node
@@ -52,6 +52,7 @@ export async function scrapeSheet(url){
   return result;
 
 }
+
 
 
 
